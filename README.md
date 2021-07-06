@@ -4,8 +4,8 @@
 
 ## Шаг 1
 
-    Склонируйте или скачайте данный репозиторий.
-    После откройте терминал в этом репозитории и введите:
+Склонируйте или скачайте данный репозиторий.
+После откройте терминал в этом репозитории и введите:
 
 ### `npm install`
 
@@ -25,30 +25,30 @@
 
 Пример использования функции
 
-window.runDetection((data) => {
-console.log(data)
-}, false);
+        window.runDetection((data) => {
+            console.log(data)
+        }, false);
 
 В данном примере отабразится только страница с распознованием лица, так как вторым аргументом мы передаем false. После того как будет нажата кнопка DETECT в консоль выведутся данные, полученные через модуль.
 
-{
-"photo_from_camera": {
-"front": "data:image/png;base64,AdowBOUPtaFIAAAAAElFTkSuQmCC..."
-},
-"agreed_on_terms": true
-}
+        {
+            "photo_from_camera": {
+                "front": "data:image/png;base64,AdowBOUPtaFIAAAAAElFTkSuQmCC..."
+            },
+            "agreed_on_terms": true
+        }
 
 Если вторым аргументов передать true, то появится форма ввода паспортных данных и при нажатии на кнопку detect объект data будет выглядить так.
 
-{
-"pass_data": "AB7680658",
-"birth_date": "04.09.2001",
-"photo_from_camera": {
-"front": "data:image/png;base64,AdowBOUPtaFIAAAAAElFTkSuQmCC..."
-},
-"agreed_on_terms": true
-}
+        {
+            "pass_data": "AB7680658",
+            "birth_date": "04.09.2001",
+            "photo_from_camera": {
+                "front": "data:image/png;base64,AdowBOUPtaFIAAAAAElFTkSuQmCC..."
+            },
+            "agreed_on_terms": true
+        }
 
-pass_data - серия и номер паспортных данных;
-birth_date - дата рождения
-photo_from_camera.front - обрезанное лицо в формате base64
+        pass_data - серия и номер паспортных данных;
+        birth_date - дата рождения
+        photo_from_camera.front - обрезанное лицо в формате base64

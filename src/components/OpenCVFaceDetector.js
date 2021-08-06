@@ -78,10 +78,10 @@ class OpenCVFaceDetector extends Component {
     if (this.face_coords.length > 1) return null;
     let { height, width, x, y } = this.face_coords[0];
 
-    x *= 0.7;
-    y *= 0.7;
-    height = 1.5 * height;
-    width = 1.5 * width;
+    // x *= 0.7;
+    // y *= 0.7;
+    // height = 1.5 * height;
+    // width = 1.5 * width;
 
     // console.log('>> coords', x, y, width, height, this.face_coords[0]);
 

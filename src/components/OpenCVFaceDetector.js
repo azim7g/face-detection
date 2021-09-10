@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -78,10 +77,10 @@ class OpenCVFaceDetector extends Component {
     if (this.face_coords.length > 1) return null;
     let { height, width, x, y } = this.face_coords[0];
 
-    // x *= 0.7;
-    // y *= 0.7;
-    // height = 1.5 * height;
-    // width = 1.5 * width;
+    x *= 0.7;
+    y *= 0.7;
+    height = 1.5 * height;
+    width = 1.5 * width;
 
     // console.log('>> coords', x, y, width, height, this.face_coords[0]);
 
@@ -95,7 +94,7 @@ class OpenCVFaceDetector extends Component {
     faceCtx.rect(0, 0, faceCanvas.width, faceCanvas.height);
     faceCtx.putImageData(faceCropped, 0, 0);
 
-    // console.log(faceCanvas.toDataURL());
+    console.log(faceCanvas.toDataURL());
 
     return faceCanvas;
   };

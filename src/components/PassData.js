@@ -17,7 +17,7 @@ const schema = yup.object().shape({
   birth_date: yup
     .string()
     .required('Введите дату рождения')
-    .matches(/^(0|1|2|3)\d{1}\.(1|0)\d{1}\.(19|20)\d{2}$/g, 'Введите правильную дату рождения: (дд.мм.19xx/20xx)'),
+    .matches(/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/, 'Введите правильную дату рождения: (дд.мм.19xx/20xx)'),
 });
 
 const PassData = ({ setPassData }) => {
@@ -91,7 +91,7 @@ const PassData = ({ setPassData }) => {
               control={control}
               defaultValue=""
               render={({ field }) => (
-                <InputMask mask="99.99.9999" disabled={false} maskChar="" {...field}>
+                <InputMask mask="9999-99-99" disabled={false} maskChar="" {...field}>
                   {(inputProps) => (
                     <TextField
                       {...inputProps}
@@ -99,7 +99,7 @@ const PassData = ({ setPassData }) => {
                       label="Дата рождения"
                       error={!!errors.birth_date}
                       helperText={errors?.birth_date?.message}
-                      placeholder="дд.мм.гггг"
+                      placeholder="гггг-мм-дд"
                       inputProps={{ style: { fontSize: 18 } }}
                       fullWidth
                     />

@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
+import { Backdrop, CircularProgress } from '@material-ui/core';
 
 // The code is based on: https://github.com/toxtli/lightweight-webcam-javascript-face-detection
 
@@ -100,6 +101,7 @@ class OpenCVFaceDetector extends Component {
   };
 
   startProcessing = () => {
+    this.props.setLoading(true);
     this.cv = window.cv;
     this.video = document.getElementById(this.videoContainerId);
     this.canvasOutput = document.getElementById(this.outputCanvasId);
@@ -245,6 +247,7 @@ class OpenCVFaceDetector extends Component {
         this.video.srcObject = s;
         this.video.play();
         console.log('started camera ');
+        this.props.setLoading(false);
       })
       .catch(function (err) {
         console.log('An error occured! ', err);
@@ -265,7 +268,7 @@ class OpenCVFaceDetector extends Component {
   };
 
   render() {
-    const { classes, loading } = this.props;
+    const { classes, loading, goBack } = this.props;
     return (
       <div className="auth_box auth_box_change" style={{ minWidth: 650 }}>
         <div className="auth_tab">
@@ -281,11 +284,19 @@ class OpenCVFaceDetector extends Component {
                 </video>
               </div>
             </Paper>
+            <Backdrop
+              style={{
+                zIndex: 100,
+                color: '#fff',
+              }}
+              open={loading}>
+              <CircularProgress color="inherit" />
+            </Backdrop>
             <Button
               variant="contained"
               color="primary"
-              disabled={this.state.send || loading}
-              onClick={() => this.setState({ send: true })}>
+              onClick={() => this.setState({ send: true })}
+              style={{ outline: 'none' }}>
               Detect
             </Button>
           </Grid>

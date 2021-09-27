@@ -51,4 +51,4 @@
 
         pass_data - серия и номер паспортных данных;
         birth_date - дата рождения
-        photo_from_camera.front - обрезанное лицо в формате base64
+        photo_from_camera.front - скриншот лица полностью ( без обрезки ) в формате base64

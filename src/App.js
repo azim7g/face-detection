@@ -3,8 +3,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 import Layout from './components/common/Layout';
 import PassData from './components/PassData';
-// import OpenCVFaceDetector from './components/OpenCVFaceDetector';
-import Webcam from './components/Webcam';
+import OpenCVFaceDetector from './components/OpenCVFaceDetector';
+// import Webcam from './components/Webcam';
 
 const styles = (theme) => ({
   root: {
@@ -73,8 +73,8 @@ class App extends React.Component {
         {showForm && step === PASS_INPUT && <PassData setPassData={this.setPassData} />}
 
         {step === FACE_DETECTION && (
-          // <OpenCVFaceDetector postData={this.authenticate} result={auth_result} loading={loading} />
-          <Webcam postData={this.authenticate} loading={loading} />
+          <OpenCVFaceDetector postData={this.authenticate} loading={loading} />
+          // <Webcam postData={this.authenticate} loading={loading} />
         )}
       </Layout>
     );

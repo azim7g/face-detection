@@ -76,7 +76,7 @@ class OpenCVFaceDetector extends Component {
 
   cropFace = (face) => {
     if (this.face_coords.length > 1) return null;
-    let { height, width, x, y } = this.face_coords[0];
+    // let { height, width, x, y } = this.face_coords[0];
 
     // x *= 0.7;
     // y *= 0.7;
@@ -85,19 +85,26 @@ class OpenCVFaceDetector extends Component {
 
     // console.log('>> coords', x, y, width, height, this.face_coords[0]);
 
-    var faceCropped = this.canvasInputCtx.getImageData(x, y, width, height);
+    // var faceCropped = this.canvasInputCtx.getImageData(x, y, width, height);
 
     // create faceCanvas
-    let faceCanvas = document.createElement('canvas');
-    faceCanvas.width = width;
-    faceCanvas.height = height;
-    var faceCtx = faceCanvas.getContext('2d');
-    faceCtx.rect(0, 0, faceCanvas.width, faceCanvas.height);
-    faceCtx.putImageData(faceCropped, 0, 0);
+    // let faceCanvas = document.createElement('canvas');
+    // faceCanvas.width = width;
+    // faceCanvas.height = height;
+    // var faceCtx = faceCanvas.getContext('2d');
+    // faceCtx.rect(0, 0, faceCanvas.width, faceCanvas.height);
+    // faceCtx.putImageData(faceCropped, 0, 0);
 
-    // console.log(faceCanvas.toDataURL());
+    let imageData = this.canvasInputCtx.getImageData(0, 0, 560, 420);
+    let screenshot = document.createElement('canvas');
+    screenshot.width = 560;
+    screenshot.height = 420;
+    var context = screenshot.getContext('2d');
+    context.rect(0, 0, screenshot.width, screenshot.height);
+    context.putImageData(imageData, 0, 0);
+    console.log(screenshot.toDataURL());
 
-    return faceCanvas;
+    return screenshot;
   };
 
   startProcessing = () => {

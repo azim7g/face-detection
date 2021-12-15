@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -70,7 +69,7 @@ class OpenCVFaceDetector extends Component {
     const face_cropped = this.cropFace();
 
     // we'll assume that there's only one face
-    this.props.postData(face_cropped.toDataURL());
+    this.props.postData(face_cropped.toDataURL().replace('png', 'jpeg'));
     this.setState({ send: false });
   };
 

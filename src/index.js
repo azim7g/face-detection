@@ -14,5 +14,3 @@ window.runDetection = (callback, showForm = true) => {
 window.stopDetection = () => {
   ReactDOM.render(null, document.getElementById('face_detection_app'));
 };
-
-window.runDetection((data) => console.log(data));

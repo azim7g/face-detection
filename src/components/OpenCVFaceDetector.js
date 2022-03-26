@@ -69,7 +69,7 @@ class OpenCVFaceDetector extends Component {
     const face_cropped = this.cropFace();
 
     // we'll assume that there's only one face
-    this.props.postData(face_cropped.toDataURL().replace('png', 'jpeg'));
+    this.props.postData(face_cropped.toDataURL());
     this.setState({ send: false });
   };
 

@@ -32,6 +32,7 @@ class App extends React.Component {
       loading: false,
       auth_result: null,
       pass_data: '',
+      pinfl: '',
       birth_date: new Date().toISOString().split('T')[0],
     };
   }
@@ -40,20 +41,26 @@ class App extends React.Component {
     const { callback, showForm } = this.props;
 
     if (showForm) {
-      callback({
-        pass_data: this.state.pass_data,
+      const result = {
         birth_date: this.state.birth_date,
+        agreed_on_terms: true,
+        device: navigator.userAgent,
         photo_from_camera: {
           front: data,
         },
-        agreed_on_terms: true,
-      });
+      };
+
+      if (this.state.pinfl) result.pinfl = this.state.pinfl;
+      else result.pass_data = this.state.pass_data;
+
+      callback(result);
     } else {
       callback({
+        agreed_on_terms: true,
+        device: navigator.userAgent,
         photo_from_camera: {
           front: data,
         },
-        agreed_on_terms: true,
       });
     }
   };

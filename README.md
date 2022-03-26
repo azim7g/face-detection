@@ -41,14 +41,15 @@
 Если вторым аргументов передать true, то появится форма ввода паспортных данных и при нажатии на кнопку detect объект data будет выглядить так.
 
         {
-            "pass_data": "AB7680658",
-            "birth_date": "04.09.2001",
+            "pass_data": "AA1234678" || pinfl: "12345678910111",
+            "birth_date": "01.02.1999",
             "photo_from_camera": {
                 "front": "data:image/png;base64,AdowBOUPtaFIAAAAAElFTkSuQmCC..."
             },
             "agreed_on_terms": true
         }
 
-        pass_data - серия и номер паспортных данных;
+        pass_data - серия и номер паспорта
+        pinfl - ПИНФЛ
         birth_date - дата рождения
         photo_from_camera.front - скриншот лица полностью ( без обрезки ) в формате base64
